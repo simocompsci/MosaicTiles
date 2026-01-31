@@ -47,7 +47,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link
                     href="/"
-                    className={`text-3xl md:text-5xl tracking-tighter transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-black'
+                    className={`text-3xl md:text-5xl tracking-tighter transition-colors duration-300 italic font-serif ${isTransparent ? 'text-white' : 'text-black'
                         }`}
                 >
                     MosaicTiles
