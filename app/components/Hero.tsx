@@ -44,7 +44,7 @@ export default function Hero() {
           >
             Where tradition meets timeless beauty.
             Handcrafted zellij and mosaic tiles shaped by centuries of Moroccan
-            craftsmanship — designed to elevate modern spaces.
+            craftsmanship designed to elevate modern spaces.
           </p>
 
           {/* Optional CTA (recommended for modern UX) */}
