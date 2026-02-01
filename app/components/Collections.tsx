@@ -118,7 +118,7 @@ export default function Collections() {
 
   return (
     <section className={`w-full bg-[#FAFAFA] py-20 md:py-32 ${Montserratfont.className}`}>
-      <div className="container mx-auto px-6 md:px-12 lg:px-16">
+      <div className="mx-auto px-6 md:px-12 lg:px-16">
 
         {/* Header & Filter */}
         <div className="mb-16">
