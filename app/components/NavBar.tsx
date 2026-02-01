@@ -36,7 +36,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`w-full fixed px-6 md:px-12 lg:px-16 transition-all duration-300 ease-in-out ${Montserratfont.className} ${isHome ? 'absolute top-0 left-0 z-50' : ''
+            className={`w-full fixed px-6 md:px-12 lg:px-16 transition-all duration-300 ease-in-out ${isHome ? 'absolute top-0 left-0 z-50' : ''
                 } ${isTransparent
                     ? 'bg-transparent border-transparent'
                     : 'bg-white border-b border-gray-300'
@@ -56,9 +56,9 @@ export default function Navbar() {
                 {/* Desktop Menu */}
                 <ul className={`hidden lg:flex items-center gap-16 text-lg transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-black'
                     }`}>
-                    <li className={`cursor-pointer`}>About Us</li>
-                    <li className={`cursor-pointer`}>Collections</li>
-                    <li className={`cursor-pointer`}>Gallery</li>
+                    <li className={`cursor-pointer tracking-wider`}>About Us</li>
+                    <li className={`cursor-pointer tracking-wider`}>Collections</li>
+                    <li className={`cursor-pointer tracking-wider`}>Gallery</li>
                 </ul>
 
                 {/* Desktop Button */}
