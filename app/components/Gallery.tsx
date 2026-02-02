@@ -90,7 +90,7 @@ function Gallery() {
                             <p className="text-black text-lg mb-2">Inspired?</p>
                             <h3 className="text-2xl font-light mb-6">Start Your Project</h3>
                             <span className="inline-block border border-white/20 px-6 py-2 text-sm uppercase tracking-widest bg-white text-black transition-all">
-                                Get a Quote
+                                Get Started
                             </span>
                         </div>
                     </div>

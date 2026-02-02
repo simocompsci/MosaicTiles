@@ -56,14 +56,14 @@ export default function Navbar() {
                 {/* Desktop Menu */}
                 <ul className={`hidden lg:flex items-center gap-16 text-lg transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-black'
                     }`}>
-                    <li className={`cursor-pointer tracking-wider`}>About Us</li>
-                    <li className={`cursor-pointer tracking-wider`}>Collections</li>
-                    <li className={`cursor-pointer tracking-wider`}>Gallery</li>
+                    <li><Link href="#about-us" className="cursor-pointer tracking-wider">About Us</Link></li>
+                    <li><Link href="#collections" className="cursor-pointer tracking-wider">Collections</Link></li>
+                    <li><Link href="#gallery" className="cursor-pointer tracking-wider">Gallery</Link></li>
                 </ul>
 
                 {/* Desktop Button */}
                 <div className="hidden lg:block">
-                    <Link href="/contact">
+                    <Link href="#contact">
                         <button className={`text-lg tracking-wider font-light px-6 py-3 transition-all duration-300 ${isTransparent
                             ? 'bg-white text-black hover:bg-black hover:text-white border-2 border-transparent hover:border-white'
                             : 'bg-black text-white hover:bg-white hover:text-black hover:border-2 hover:border-black'
@@ -91,20 +91,22 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            {open && (
-                <div className="lg:hidden border-t border-gray-200 absolute top-20 left-0 w-full bg-white z-40">
-                    <ul className="flex flex-col items-center gap-6 py-8 text-lg text-black">
-                        <li onClick={() => setOpen(false)}>About Us</li>
-                        <li onClick={() => setOpen(false)}>Collections</li>
-                        <li onClick={() => setOpen(false)}>Gallery</li>
-                        <Link href="/contact" onClick={() => setOpen(false)}>
-                            <button className="bg-black text-white px-6 py-3 tracking-wider">
-                                Contact Us
-                            </button>
-                        </Link>
-                    </ul>
-                </div>
-            )}
-        </nav>
+            {
+                open && (
+                    <div className="lg:hidden border-t border-gray-200 absolute top-20 left-0 w-full bg-white z-40">
+                        <ul className="flex flex-col items-center gap-6 py-8 text-lg text-black">
+                            <Link href="#about-us" onClick={() => setOpen(false)}>About Us</Link>
+                            <Link href="#collections" onClick={() => setOpen(false)}>Collections</Link>
+                            <Link href="#gallery" onClick={() => setOpen(false)}>Gallery</Link>
+                            <Link href="#contact" onClick={() => setOpen(false)}>
+                                <button className="bg-black text-white px-6 py-3 tracking-wider">
+                                    Contact Us
+                                </button>
+                            </Link>
+                        </ul>
+                    </div>
+                )
+            }
+        </nav >
     );
 }
