@@ -95,14 +95,16 @@ export default function Navbar() {
                 open && (
                     <div className="lg:hidden border-t border-gray-200 absolute top-20 left-0 w-full bg-white z-40">
                         <ul className="flex flex-col items-center gap-6 py-8 text-lg text-black">
-                            <Link href="#about-us" onClick={() => setOpen(false)}>About Us</Link>
-                            <Link href="#collections" onClick={() => setOpen(false)}>Collections</Link>
-                            <Link href="#gallery" onClick={() => setOpen(false)}>Gallery</Link>
-                            <Link href="#contact" onClick={() => setOpen(false)}>
-                                <button className="bg-black text-white px-6 py-3 tracking-wider">
-                                    Contact Us
-                                </button>
-                            </Link>
+                            <li><Link href="#about-us" onClick={() => setOpen(false)}>About Us</Link></li>
+                            <li><Link href="#collections" onClick={() => setOpen(false)}>Collections</Link></li>
+                            <li><Link href="#gallery" onClick={() => setOpen(false)}>Gallery</Link></li>
+                            <li>
+                                <Link href="#contact" onClick={() => setOpen(false)}>
+                                    <button className="bg-black text-white px-6 py-3 tracking-wider">
+                                        Contact Us
+                                    </button>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 )
