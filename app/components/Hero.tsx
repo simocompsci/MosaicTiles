@@ -43,7 +43,7 @@ export default function Hero() {
           <h1
             className={`${cinzel.className}
             text-5xl md:text-7xl lg:text-8xl
-            text-white leading-tight drop-shadow-lg uppercase tracking-wide `}
+            text-white leading-tight drop-shadow-lg uppercase tracking-wide font-medium lg:w-5xl`}
           >
             Timeless <br className="hidden md:block" />
             <span className="italic">Mosaic</span> Artistry
@@ -52,7 +52,7 @@ export default function Hero() {
           <p
             className={`${montserrat.className}
             mt-8 max-w-2xl
-            text-lg md:text-xl font-light
+            text-lg md:text-xl font-medium
             leading-relaxed text-white/95 tracking-wide`}
           >
             Handcrafted zellij tiles shaped by centuries of tradition.

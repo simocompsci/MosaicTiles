@@ -32,7 +32,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`w-full fixed px-6 md:px-10 lg:px-12 transition-all duration-500 ease-in-out ${montserrat.className} ${bgColor} border-b border-gray-200 py-5 shadow-sm z-50 top-0 left-0`}
+            className={`w-full fixed px-6 md:px-10 lg:px-12 transition-all duration-500 ease-in-out ${montserrat.className} ${bgColor} border-b border-gray-200 py-5 z-50 top-0 left-0`}
         >
             <div className="flex items-center justify-between mx-auto max-w-[1920px]">
 
