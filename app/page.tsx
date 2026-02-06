@@ -16,7 +16,7 @@ export default function Home() {
           <AboutUs />
         </section>
         <section id="collections">
-          <Collections />
+          <Collections limit={4} showLink={true} />
         </section>
         <section id="gallery">
           <Gallery />
