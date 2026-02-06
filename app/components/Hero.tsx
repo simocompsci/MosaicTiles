@@ -16,7 +16,7 @@ const cinzel = Cinzel({
 
 export default function Hero() {
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden">
+    <section className="relative min-h-[85vh] w-full overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -32,7 +32,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative flex h-full items-center justify-center px-6 md:px-12 text-center">
+      <div className="relative flex min-h-[85vh] items-center justify-center px-6 md:px-12 text-center pt-32 md:pt-0 pb-12 md:pb-0">
         <div className="max-w-4xl flex flex-col items-center">
 
           {/* Eyebrow Text */}
@@ -43,7 +43,7 @@ export default function Hero() {
           <h1
             className={`${cinzel.className}
             text-5xl md:text-7xl lg:text-8xl
-            text-white leading-tight drop-shadow-lg uppercase tracking-wide`}
+            text-white leading-tight drop-shadow-lg uppercase tracking-wide `}
           >
             Timeless <br className="hidden md:block" />
             <span className="italic">Mosaic</span> Artistry
@@ -61,12 +61,11 @@ export default function Hero() {
 
           {/* Premium CTAs */}
           <div className="mt-12 flex flex-col sm:flex-row gap-6">
-            <button className={`${montserrat.className} bg-white text-black px-10 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-[#F9F8F6] hover:scale-105`}>
-              Explore Collection
+            <button className={`${montserrat.className} bg-black text-white px-10 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-white hover:text-black hover:border-white`}>
+              Explore Projects
             </button>
-
-            <button className={`${montserrat.className} border border-white text-white px-10 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-white hover:text-black hover:border-white`}>
-              Our Story
+            <button className={`${montserrat.className} bg-white text-black px-10 py-4 text-sm uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-black hover:text-white hover:border-white`}>
+              Explore Collection
             </button>
           </div>
         </div>
