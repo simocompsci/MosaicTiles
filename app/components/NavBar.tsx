@@ -21,13 +21,13 @@ export default function Navbar() {
     const hoverColor = 'hover:text-[#A0522D]'; // Sienna/Terracotta
 
     const navLinks = [
-        { name: 'About Us', href: '#about-us' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Location', href: '#location' },
-        { name: "How it's made", href: '#how-its-made' },
-        { name: 'Packaging', href: '#packaging' },
-        { name: 'Collections', href: '#collections' },
-        { name: 'Stones', href: '#stones' },
+        { name: 'About Us', href: '/about-us' },
+        { name: 'Projects', href: '/projects' },
+        { name: 'Location', href: '/location' },
+        { name: "How it's made", href: '/how-its-made' },
+        { name: 'Packaging', href: '/packaging' },
+        { name: 'Collections', href: '/collections' },
+        { name: 'Stones', href: '/stones' },
     ];
 
     return (

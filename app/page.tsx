@@ -4,7 +4,6 @@ import Collections from "./components/Collections";
 import Gallery from "./components/Gallery";
 import FAQ from "./components/FAQ";
 import ContactUs from "./components/ContactUs";
-import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -28,7 +27,6 @@ export default function Home() {
         <section id="contact">
           <ContactUs />
         </section>
-        <Footer />
       </main>
     </>
   );
