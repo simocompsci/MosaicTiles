@@ -1,114 +1,113 @@
-'use client';
+'use client'
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Montserrat } from 'next/font/google';
 
-const Montserratfont = Montserrat({
+const montserrat = Montserrat({
     subsets: ['latin'],
-    weight: '500',
+    weight: ['400', '500', '600'], // Bringing in heavier weights for clarity
     display: 'swap',
 });
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
     const pathname = usePathname();
 
-    const isHome = pathname === '/';
+    // Premium styling constants
+    const bgColor = 'bg-[#F9F8F6]'; // Soft cream always
+    const textColor = 'text-black'; // Pure black for max clarity
+    const hoverColor = 'hover:text-[#A0522D]'; // Sienna/Terracotta
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 10) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    // Transparent if on home, not scrolled, and menu is closed
-    const isTransparent = isHome && !isScrolled && !open;
+    const navLinks = [
+        { name: 'About Us', href: '#about-us' },
+        { name: 'Projects', href: '#projects' },
+        { name: 'Location', href: '#location' },
+        { name: "How it's made", href: '#how-its-made' },
+        { name: 'Packaging', href: '#packaging' },
+        { name: 'Collections', href: '#collections' },
+        { name: 'Stones', href: '#stones' },
+    ];
 
     return (
         <nav
-            className={`w-full fixed px-6 md:px-12 lg:px-16 transition-all duration-300 ease-in-out ${isHome ? 'absolute top-0 left-0 z-50' : ''
-                } ${isTransparent
-                    ? 'bg-transparent border-transparent'
-                    : 'bg-white border-b border-gray-300'
-                }`}
+            className={`w-full fixed px-6 md:px-10 lg:px-12 transition-all duration-500 ease-in-out ${montserrat.className} ${bgColor} border-b border-gray-200 py-5 shadow-sm z-50 top-0 left-0`}
         >
-            <div className="flex items-center justify-between h-20 mx-auto">
+            <div className="flex items-center justify-between mx-auto max-w-[1920px]">
 
-                {/* Logo */}
+                {/* Logo - Fixed on the side as requested */}
                 <Link
                     href="/"
-                    className={`text-3xl md:text-5xl tracking-tighter transition-colors duration-300 italic font-serif ${isTransparent ? 'text-white' : 'text-black'
-                        }`}
+                    className={`text-2xl md:text-3xl lg:text-6xl tracking-tighter transition-colors duration-300 italic font-serif z-50 relative ${textColor}`}
                 >
                     MosaicTiles
                 </Link>
 
                 {/* Desktop Menu */}
-                <ul className={`hidden lg:flex items-center gap-16 text-lg transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-black'
-                    }`}>
-                    <li><Link href="#about-us" className="cursor-pointer tracking-wider">About Us</Link></li>
-                    <li><Link href="#collections" className="cursor-pointer tracking-wider">Collections</Link></li>
-                    <li><Link href="#gallery" className="cursor-pointer tracking-wider">Gallery</Link></li>
+                <ul className={`hidden xl:flex items-center justify-center gap-8 2xl:gap-12 text-base font-medium tracking-wide transition-colors duration-300 ${textColor}`}>
+                    {navLinks.map((link) => (
+                        <li key={link.name}>
+                            <Link
+                                href={link.href}
+                                className={`cursor-pointer transition-colors duration-300 ${hoverColor} uppercase`}
+                            >
+                                {link.name}
+                            </Link>
+                        </li>
+                    ))}
+                    <li>
+                        <Link
+                            href="#contact"
+                            className="px-8 py-3 bg-black text-white border border-black uppercase hover:bg-white hover:text-black transition-all duration-300"
+                        >
+                            Contact Us
+                        </Link>
+                    </li>
                 </ul>
 
-                {/* Desktop Button */}
-                <div className="hidden lg:block">
-                    <Link href="#contact">
-                        <button className={`text-lg tracking-wider font-light px-6 py-3 transition-all duration-300 ${isTransparent
-                            ? 'bg-white text-black hover:bg-black hover:text-white border-2 border-transparent hover:border-white'
-                            : 'bg-black text-white hover:bg-white hover:text-black hover:border-2 hover:border-black'
-                            }`}>
-                            Contact Us
-                        </button>
-                    </Link>
-                </div>
-
-                {/* Mobile Menu Button */}
+                {/* Mobile/Tablet Menu Button (Visible below XL) */}
                 <button
                     onClick={() => setOpen(!open)}
-                    className="lg:hidden focus:outline-none"
+                    className="xl:hidden focus:outline-none z-50"
                     aria-label="Toggle menu"
                 >
-                    <div className="space-y-2">
-                        <span className={`block h-0.5 w-6 transition duration-300 ${isTransparent ? 'bg-white' : 'bg-black'
-                            } ${open && 'rotate-45 translate-y-2.5 bg-black!'}`} />
-                        <span className={`block h-0.5 w-6 transition duration-300 ${isTransparent ? 'bg-white' : 'bg-black'
-                            } ${open && 'opacity-0'}`} />
-                        <span className={`block h-0.5 w-6 transition duration-300 ${isTransparent ? 'bg-white' : 'bg-black'
-                            } ${open && '-rotate-45 -translate-y-2.5 bg-black!'}`} />
+                    <div className="space-y-1.5 focus:outline-none">
+                        <span className={`block h-0.5 w-7 transition-colors duration-300 ${open ? 'bg-black' : 'bg-black'} ${open && 'rotate-45 translate-y-2'}`} />
+                        <span className={`block h-0.5 w-7 transition-colors duration-300 ${open ? 'bg-black' : 'bg-black'} ${open && 'opacity-0'}`} />
+                        <span className={`block h-0.5 w-7 transition-colors duration-300 ${open ? 'bg-black' : 'bg-black'} ${open && '-rotate-45 -translate-y-2'}`} />
                     </div>
                 </button>
             </div>
 
-            {/* Mobile Menu */}
-            {
-                open && (
-                    <div className="lg:hidden border-t border-gray-200 absolute top-20 left-0 w-full bg-white z-40">
-                        <ul className="flex flex-col items-center gap-6 py-8 text-lg text-black">
-                            <li><Link href="#about-us" onClick={() => setOpen(false)}>About Us</Link></li>
-                            <li><Link href="#collections" onClick={() => setOpen(false)}>Collections</Link></li>
-                            <li><Link href="#gallery" onClick={() => setOpen(false)}>Gallery</Link></li>
-                            <li>
-                                <Link href="#contact" onClick={() => setOpen(false)}>
-                                    <button className="bg-black text-white px-6 py-3 tracking-wider">
-                                        Contact Us
-                                    </button>
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-                )
-            }
+            {/* Mobile Menu Overlay */}
+            <div
+                className={`fixed inset-0 bg-[#F9F8F6] z-40 flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                    }`}
+            >
+                <ul className="flex flex-col items-center gap-8 text-2xl text-black font-semibold tracking-wide uppercase">
+                    {navLinks.map((link) => (
+                        <li key={link.name}>
+                            <Link
+                                href={link.href}
+                                onClick={() => setOpen(false)}
+                                className="hover:text-[#A0522D] transition-colors duration-300"
+                            >
+                                {link.name}
+                            </Link>
+                        </li>
+                    ))}
+                    <li>
+                        <Link
+                            href="#contact"
+                            onClick={() => setOpen(false)}
+                            className="px-8 py-3 bg-black text-white border border-black uppercase hover:bg-white hover:text-black transition-all duration-300"
+                        >
+                            Contact Us
+                        </Link>
+                    </li>
+                </ul>
+            </div>
         </nav >
     );
 }
