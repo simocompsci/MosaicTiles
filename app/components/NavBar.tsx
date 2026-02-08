@@ -20,19 +20,35 @@ export default function Navbar() {
     const textColor = 'text-black'; // Pure black for max clarity
     const hoverColor = 'hover:text-[#A0522D]'; // Sienna/Terracotta
 
-    const navLinks = [
+    interface NavLink {
+        name: string;
+        href: string;
+        dropdown?: { name: string; href: string }[];
+    }
+
+    const navLinks: NavLink[] = [
         { name: 'About Us', href: '/about-us' },
         { name: 'Projects', href: '/projects' },
         { name: 'Location', href: '/location' },
         { name: "How it's made", href: '/how-its-made' },
         { name: 'Packaging', href: '/packaging' },
-        { name: 'Collections', href: '/collections' },
+        {
+            name: 'Collections',
+            href: '/collections',
+            dropdown: [
+                { name: 'All', href: '/collections' },
+                { name: 'Mosaic', href: '/collections' },
+                { name: 'Basic', href: '/collections' },
+                { name: 'Colors', href: '/collections' },
+                { name: 'Border', href: '/collections' },
+            ]
+        },
         { name: 'Stones', href: '/stones' },
     ];
 
     return (
         <nav
-            className={`w-full fixed px-6 md:px-10 lg:px-12 transition-all duration-500 ease-in-out ${montserrat.className} ${bgColor} border-b border-gray-200 py-5 z-50 top-0 left-0`}
+            className={`w-full fixed px-6 md:px-10 lg:px-12 transition-all duration-500 ease-in-out ${montserrat.className} ${bgColor} border-b border-gray-200 py-5 shadow-sm z-50 top-0 left-0`}
         >
             <div className="flex items-center justify-between mx-auto max-w-[1920px]">
 
@@ -47,13 +63,29 @@ export default function Navbar() {
                 {/* Desktop Menu */}
                 <ul className={`hidden xl:flex items-center justify-center gap-8 2xl:gap-12 text-base font-medium tracking-wide transition-colors duration-300 ${textColor}`}>
                     {navLinks.map((link) => (
-                        <li key={link.name}>
+                        <li key={link.name} className="relative group h-full flex items-center">
                             <Link
                                 href={link.href}
-                                className={`cursor-pointer transition-colors duration-300 ${hoverColor} uppercase`}
+                                className={`cursor-pointer transition-colors duration-300 ${hoverColor} uppercase py-4`}
                             >
                                 {link.name}
                             </Link>
+
+                            {/* Dropdown Menu */}
+                            {link.dropdown && (
+                                <ul className="absolute top-full left-1/2 -translate-x-1/2 w-48 bg-[#F9F8F6] shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 text-gray-800 text-sm z-50">
+                                    {link.dropdown.map((item) => (
+                                        <li key={item.name} className="border-b border-gray-100 last:border-none">
+                                            <Link
+                                                href={item.href}
+                                                className="block px-6 py-3 hover:bg-[#A0522D] hover:text-white transition-colors duration-200 uppercase tracking-widest text-center"
+                                            >
+                                                {item.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </li>
                     ))}
                     <li>
