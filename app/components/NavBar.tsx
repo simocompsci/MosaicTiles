@@ -90,7 +90,7 @@ export default function Navbar() {
                     ))}
                     <li>
                         <Link
-                            href="#contact"
+                            href="/contact-us"
                             className="px-8 py-3 bg-black text-white border border-black uppercase hover:bg-white hover:text-black transition-all duration-300"
                         >
                             Contact Us
