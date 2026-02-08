@@ -121,37 +121,7 @@ export default function AboutUsPage() {
                 </div>
             </section>
 
-            {/* 
-        ------------------------------------------
-        4. CRAFTSMANSHIP TEASER
-        ------------------------------------------
-      */}
-            <section className="relative py-32 bg-[#F5F5F0]">
-                <div className="container mx-auto px-6 md:px-12 lg:px-16 flex flex-col md:flex-row items-center justify-between">
-                    <div className="md:w-1/2 mb-12 md:mb-0">
-                        <h2 className={`text-4xl md:text-6xl text-black mb-6 ${cinzel.className}`}>
-                            The Hands <br /> Behind the Art
-                        </h2>
-                        <Link
-                            href="/how-its-made"
-                            className={`inline-block border-b border-black pb-1 text-lg uppercase tracking-widest hover:text-[#A0522D] hover:border-[#A0522D] transition-all duration-300 ${montserrat.className}`}
-                        >
-                            Discover the Process
-                        </Link>
-                    </div>
-                    <div className="md:w-1/2 pl-0 md:pl-12">
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="h-64 bg-gray-300 relative overflow-hidden">
-                                <Image src="/HeroMosaic.jpg" alt="Process 1" fill className="object-cover hover:scale-110 transition-transform duration-700" />
-                            </div>
-                            <div className="h-64 bg-gray-200 relative overflow-hidden mt-12">
-                                <Image src="/hero_high_quality.png" alt="Process 2" fill className="object-cover hover:scale-110 transition-transform duration-700" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            
         </main>
     );
 }
